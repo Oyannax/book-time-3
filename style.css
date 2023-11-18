@@ -134,6 +134,8 @@ body {
     width: 360px;
     height: 295px;
     overflow: hidden;
+    overflow-x: scroll;
+    scrollbar-width: none;
 }
 
 .carousel-content {
@@ -394,8 +396,7 @@ body {
 
 .active-icon {
     position: absolute;
-    top: -4px;
-    left: 49px;
+    /* top: -4px; */
     width: 56px;
     height: 56px;
     display: flex;
@@ -405,8 +406,13 @@ body {
     border-radius: 28px;
 }
 
+.active-icon.book {
+    left: 49px;
+}
+
 .active-icon .nav-icon {
     position: relative;
-    width: 24px;
+    /* width: 24px; */
     height: 30px;
+    filter: invert(98%) sepia(8%) saturate(417%) hue-rotate(81deg) brightness(91%) contrast(93%);
 }
