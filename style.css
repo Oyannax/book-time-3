@@ -127,10 +127,11 @@ body {
 
 .carousel-content {
     position: absolute;
-    left: 32px;
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 17px;
+    /* left: 32px; */
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: 272px repeat(2, 295px);
+    grid-gap: 17px;
 }
 
 .slide {
