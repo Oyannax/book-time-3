@@ -44,6 +44,11 @@ li {
     list-style: none;
 }
 
+button {
+    background: none;
+    border: none;
+}
+
 a {
     text-decoration: none;
 }
@@ -67,7 +72,7 @@ body {
     background-image: url(img/mobile-bg.png);
     background-size: cover;
     background-position: center;
-    
+
 }
 
 /********** HEADER **********/
@@ -110,7 +115,7 @@ body {
     color: var(--light-green);
 }
 
-    /********* CAROUSEL *********/
+/********* CAROUSEL *********/
 .carousel-cntnr {
     position: absolute;
     top: 197px;
@@ -121,23 +126,20 @@ body {
     width: 360px;
     height: 295px;
     overflow: hidden;
-    overflow-x: scroll;
-    scrollbar-width: none;
 }
 
 .carousel-content {
     position: absolute;
-    /* left: 32px; */
     padding: 0 32px;
     display: grid;
     grid-template-columns: 272px repeat(2, 295px);
     grid-gap: 17px;
+    pointer-events: none;
 }
 
 .slide {
     background-color: #fff;
     box-shadow: 9px 5px 20px rgba(0, 0, 0, .25);
-    /* transition: .5s ease-in-out; */
 }
 
 .add-cntnr {
@@ -176,13 +178,36 @@ body {
     border-radius: 8px 8px 53px 8px;
 }
 
+    /********* CONTROLS *********/
+.carousel-controls {
+    position: absolute;
+    top: 43%;
+}
+
+.arrow {
+    position: relative;
+    cursor: pointer;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    left: 314px;
+}
+
+    /********* DOTS *********/
 .carousel-dots {
     position: absolute;
     top: 258px;
     left: 144px;
+    padding: 16px;
+}
+
+.dot-list {
     display: flex;
     gap: 8px;
-    padding: 16px;
 }
 
 .dot {
@@ -192,15 +217,15 @@ body {
     border-radius: 4px;
 }
 
-.active-dot {
+.dot.active {
     background-color: var(--light-black);
 }
 
-.inactive-dot {
+.dot.inactive {
     background-color: var(--light-grey);
 }
 
-    /********* CURRENTLY READING *********/
+/********* CURRENTLY READING *********/
 .reading-cntnr {
     position: absolute;
     top: 502px;
@@ -221,7 +246,6 @@ body {
 }
 
 .reading-ttl {
-    /* width: 148px; */
     margin-top: -1px;
     font-size: 17px;
     font-weight: 600;
@@ -251,7 +275,7 @@ body {
     margin: -1.5px -.5px -1.5px -10px;
 }
 
-    /********* TO READ *********/
+/********* TO READ *********/
 .to-read-txt {
     position: absolute;
     top: 610px;
@@ -303,9 +327,8 @@ body {
 .to-read-content {
     height: 63px;
     overflow: hidden;
-    overflow-x: scroll;
-    /* scroll-snap-type: x mandatory; */
-    scrollbar-width: none;
+    scroll-behavior: smooth;
+    cursor: grab;
 }
 
 .to-read-covers {
@@ -326,7 +349,6 @@ body {
     background-color: #fff;
     border: 2px solid #c4c4c43b;
     border-radius: 30px;
-    /* scroll-snap-align: start; */
 }
 
 .add-icon-2 {
@@ -342,7 +364,6 @@ body {
     border: 2px solid #fff;
     border-radius: 30px;
     object-fit: cover;
-    /* scroll-snap-align: start; */
 }
 
 /********* NAV BAR *********/
