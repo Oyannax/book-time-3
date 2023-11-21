@@ -22,20 +22,9 @@
     --bg: #f7ebde;
 }
 
+/********** RESET CSS **********/
 * {
     box-sizing: border-box;
-}
-
-/********** RESET CSS **********/
-html,
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-ul,
-li {
     margin: 0;
     padding: 0;
 }
@@ -68,6 +57,7 @@ body {
     width: 360px;
     margin: auto;
     background-color: var(--bg);
+    line-height: 21px;
     font-family: var(--open-sans);
     color: var(--dark-grey);
 }
@@ -76,7 +66,7 @@ body {
     height: 800px;
     background-image: url(img/mobile-bg.png);
     background-size: cover;
-    background-position: 50% 50%;
+    background-position: center;
     
 }
 
@@ -105,7 +95,6 @@ body {
 .header-ttl {
     width: 60px;
     font-size: 26px;
-    line-height: 21px;
     font-weight: 400;
     text-align: center;
 }
@@ -116,9 +105,7 @@ body {
     top: 139px;
     left: 22px;
     width: 187px;
-    font-size: 2rem;
-    line-height: 21px;
-    font-weight: 700;
+    font-size: 32px;
     text-align: center;
     color: var(--light-green);
 }
@@ -165,7 +152,6 @@ body {
     left: 32px;
     width: 173px;
     font-size: 23px;
-    line-height: 21px;
     font-weight: 600;
     text-align: center;
 }
@@ -175,18 +161,15 @@ body {
     top: 58px;
     left: 32px;
     width: 157px;
-    line-height: 21px;
 }
 
-.add-icon1 {
+.add-icon-1 {
     position: absolute;
     top: 120px;
     left: 136px;
-    width: 118px;
 }
 
 .currently-cntnr {
-    position: relative;
     flex: 0 0 295px;
     height: 242px;
     border-radius: 8px 8px 53px 8px;
@@ -237,18 +220,10 @@ body {
 }
 
 .reading-ttl {
-    position: relative;
-    width: 148px;
+    /* width: 148px; */
     margin-top: -1px;
     font-size: 17px;
     font-weight: 600;
-    line-height: 21px;
-}
-
-.reading-more {
-    position: relative;
-    width: 30px;
-    line-height: 21px;
 }
 
 .reading-covers {
@@ -258,25 +233,21 @@ body {
     display: flex;
 }
 
-.reading-cover1 {
-    position: relative;
+.reading-cover {
     width: 29.6px;
     height: 29.6px;
-    margin: -1.5px 0 -1.5px -.5px;
     border: 1.5px solid #fff;
     border-radius: 50px;
-    box-shadow: 10px 0px 32px 10px rgba(0, 0, 0, .25);
     object-fit: cover;
 }
 
-.reading-cover2 {
-    position: relative;
-    width: 29.6px;
-    height: 29.6px;
+.first-cover {
+    margin: -1.5px 0 -1.5px -.5px;
+    box-shadow: 10px 0px 32px 10px rgba(0, 0, 0, .25);
+}
+
+.next-cover {
     margin: -1.5px -.5px -1.5px -10px;
-    border: 1.5px solid #fff;
-    border-radius: 50px;
-    object-fit: cover;
 }
 
     /********* TO READ *********/
@@ -293,13 +264,10 @@ body {
     z-index: 1;
     font-size: 23px;
     font-weight: 600;
-    line-height: 21px;
     text-align: center;
 }
 
-.highlight1 {
-    position: relative;
-    width: 100%;
+.highlight-1 {
     height: 12px;
     margin-top: -8px;
     background-color: #8eb8a866;
@@ -310,7 +278,6 @@ body {
     top: 610px;
     left: 298px;
     width: 30px;
-    line-height: 21px;
     text-align: center;
     color: var(--dark-green);
 }
@@ -322,7 +289,7 @@ body {
     height: 63px;
 }
 
-.highlight2 {
+.highlight-2 {
     position: absolute;
     top: 13px;
     left: 32px;
@@ -333,8 +300,6 @@ body {
 }
 
 .to-read-content {
-    position: absolute;
-    width: 360px;
     height: 63px;
     overflow: hidden;
     overflow-x: scroll;
@@ -363,11 +328,10 @@ body {
     /* scroll-snap-align: start; */
 }
 
-.add-icon2 {
+.add-icon-2 {
     position: absolute;
     top: 23px;
     left: 22px;
-    width: 11px;
 }
 
 .book-cover {
@@ -394,11 +358,15 @@ body {
     border-radius: 24px 24px 0 0;
 }
 
+.nav-icon {
+    filter: invert(71%) sepia(0%) saturate(673%) hue-rotate(147deg) brightness(84%) contrast(83%);
+}
+
 .active-icon {
     position: absolute;
-    /* top: -4px; */
     width: 56px;
     height: 56px;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -412,7 +380,6 @@ body {
 
 .active-icon .nav-icon {
     position: relative;
-    /* width: 24px; */
     height: 30px;
-    filter: invert(98%) sepia(8%) saturate(417%) hue-rotate(81deg) brightness(91%) contrast(93%);
+    filter: invert(98%) sepia(7%) saturate(469%) hue-rotate(80deg) brightness(92%) contrast(90%);
 }
