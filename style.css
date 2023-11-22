@@ -146,6 +146,7 @@ body {
     box-shadow: 9px 5px 20px rgba(0, 0, 0, .25);
 }
 
+    /********* ADD SLIDE *********/
 .add-cntnr {
     position: relative;
     flex: 0 0 272px;
@@ -176,10 +177,62 @@ body {
     left: 136px;
 }
 
+    /********* CURRENT SLIDE *********/
 .currently-cntnr {
+    position: relative;
     flex: 0 0 295px;
     height: 242px;
     border-radius: 8px 8px 53px 8px;
+}
+
+.progress {
+    height: 9px;
+}
+
+.progress.bar-cntnr {
+    position: absolute;
+    width: 100%;
+    background-color: var(--light-orange);
+    border-radius: 8px 8px 0 0;
+}
+
+.progress.bar {
+    width: 30%;
+    background-color: var(--orange);
+    border-top-left-radius: 8px;
+}
+
+.bookmark-icon {
+    position: absolute;
+    top: 0;
+    left: calc(30% - 17px);
+    height: 34px;
+}
+
+.book-ttl {
+    position: absolute;
+    top: 52px;
+    left: 25px;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--black);
+}
+
+.book-author {
+    position: absolute;
+    top: 102px;
+    left: 132px;
+    color: var(--dark-grey);
+}
+
+.reading-cover {
+    position: relative;
+    top: 103px;
+    left: 17px;
+    height: 152px;
+    width: 100px;
+    border-radius: 8px;
+    object-fit: cover;
 }
 
     /********* CONTROLS *********/
@@ -192,6 +245,13 @@ body {
     position: absolute;
     cursor: pointer;
 }
+
+/* .arrow:hover {
+    width: 56px;
+    height: 56px;
+    background-color: #ffffff80;
+    border-radius: 28px;
+} */
 
 .prev {
     display: none;
@@ -261,7 +321,7 @@ body {
     display: flex;
 }
 
-.reading-cover {
+.small-reading {
     width: 29.6px;
     height: 29.6px;
     border: 1.5px solid #fff;
@@ -360,7 +420,7 @@ body {
     left: 22px;
 }
 
-.book-cover {
+.read-cover {
     position: relative;
     width: 59.2px;
     height: 59.2px;
