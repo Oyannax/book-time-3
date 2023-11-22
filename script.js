@@ -11,11 +11,8 @@ dots[0].classList.add("active");
 carousel.addEventListener("scroll", showHiddenArrows);
 document.addEventListener("scroll", showActiveDots);
 
-let firstSlideWidth = firstSlide.clientWidth + 17;
-let nextSlideWidth = nextSlide.clientWidth + 17;
-let scrollWidth = carousel.scrollWidth - carousel.clientWidth;
-
 function showHiddenArrows() {
+    let scrollWidth = carousel.scrollWidth - carousel.clientWidth;
     arrows[0].style.display = carousel.scrollLeft === 0 ? "none" : "block";
     arrows[1].style.display = carousel.scrollLeft === scrollWidth ? "none" : "block";
 }
@@ -32,6 +29,8 @@ function showActiveDots() {
 
 arrows.forEach(arrow => {
     arrow.addEventListener("click", (e) => {
+        let firstSlideWidth = firstSlide.clientWidth + 17;
+        let nextSlideWidth = nextSlide.clientWidth + 17;
         if (!e.detail || e.detail === 1) {
             if (arrow.id === "next") {
                 if (carousel.scrollLeft === 0) {
@@ -62,7 +61,7 @@ let prevScrollLeft;
 
 function dragStart(e) {
     isDragStart = true;
-    prevPageX = e.pageX;
+    prevPageX = e.pageX || e.touches[0].pageX;
     prevScrollLeft = toRead.scrollLeft;
     toRead.style.cursor = "grabbing";
 }
@@ -73,10 +72,15 @@ function dragStop() {
 function dragging(e) {
     if (!isDragStart) return;
     e.preventDefault();
-    let positionDiff = e.pageX - prevPageX;
+    let positionDiff = (e.pageX || e.touches[0].pageX) - prevPageX;
     toRead.scrollLeft = prevScrollLeft - positionDiff;
 }
 
 toRead.addEventListener("mousedown", dragStart);
+toRead.addEventListener("touchstart", dragStart);
+
 toRead.addEventListener("mouseup", dragStop);
+toRead.addEventListener("touchend", dragStop);
+
 toRead.addEventListener("mousemove", dragging);
+toRead.addEventListener("touchmove", dragging);
