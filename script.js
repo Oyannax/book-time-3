@@ -1,28 +1,28 @@
 const carousel = document.querySelector('.carousel');
 const firstSlide = carousel.querySelectorAll('.slide')[0];
 const nextSlide = carousel.querySelectorAll('.slide')[1];
-const arrowIcons = document.querySelectorAll('.carousel-controls .arrow');
+const arrows = document.querySelectorAll('.carousel-controls .arrow');
 const dots = document.querySelectorAll('.carousel-dots .dot');
 
-let target = 0;
+let currentIndex = 0;
 carousel.scrollLeft = 0;
 dots[0].classList.add("active");
 
-carousel.addEventListener("scroll", showHideIcons);
+carousel.addEventListener("scroll", showHiddenArrows);
 document.addEventListener("scroll", showActiveDots);
 
 let firstSlideWidth = firstSlide.clientWidth + 17;
 let nextSlideWidth = nextSlide.clientWidth + 17;
 let scrollWidth = carousel.scrollWidth - carousel.clientWidth;
 
-function showHideIcons() {
-    arrowIcons[0].style.display = carousel.scrollLeft === 0 ? "none" : "block";
-    arrowIcons[1].style.display = carousel.scrollLeft === scrollWidth ? "none" : "block";
+function showHiddenArrows() {
+    arrows[0].style.display = carousel.scrollLeft === 0 ? "none" : "block";
+    arrows[1].style.display = carousel.scrollLeft === scrollWidth ? "none" : "block";
 }
 
 function showActiveDots() {
     for (let i = 0; i < dots.length; i++) {
-        if (i === target) {
+        if (i === currentIndex) {
             dots[i].classList.add("active");
         } else {
             dots[i].classList.remove("active");
@@ -30,22 +30,22 @@ function showActiveDots() {
     }
 }
 
-arrowIcons.forEach(icon => {
-    icon.addEventListener("click", (e) => {
+arrows.forEach(arrow => {
+    arrow.addEventListener("click", (e) => {
         if (!e.detail || e.detail === 1) {
-            if (icon.id === "right") {
+            if (arrow.id === "next") {
                 if (carousel.scrollLeft === 0) {
                     carousel.scrollLeft += firstSlideWidth;
-                    target++;
+                    currentIndex++;
                 } else {
                     carousel.scrollLeft += nextSlideWidth;
-                    target++;
+                    currentIndex++;
                 }
             } else {
                 carousel.scrollLeft -= nextSlideWidth;
-                target--;
+                currentIndex--;
             }
-            setTimeout(() => showHideIcons(), 60);
+            setTimeout(() => showHiddenArrows(), 60);
             showActiveDots();
         } else {
             return;
