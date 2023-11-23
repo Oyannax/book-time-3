@@ -1,3 +1,12 @@
+<?php
+require_once 'vendor/autoload.php';
+require_once 'includes/_functions.php';
+include 'includes/_db.php';
+
+session_start();
+generateToken();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -10,6 +19,29 @@
 
 <body>
     <div class="background">
+    <div class="form">
+        <?php getNotifHtml() ?>
+            <form action="action.php" method="POST">
+                <label class="form-label">Wanna add a book?
+                    <input class="text-input" type="text" name="book-title" placeholder="Your book title">
+                    <input class="text-input" type="textarea" name="description" placeholder="Any details?">
+                    <input type="hidden" name="action" value="add">
+                    <input id="token-field" type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
+                </label>
+                <input class="submit-input" type="submit" value="👍">
+            </form>
+        </div>
+        <!-- <ul class="notif-cntnr">
+            <li class="notif">
+                <div class="notif-content"><img src="img/check-icon.svg" alt="check icon" class="check">
+                    <div class="msg-txt">
+                        <p class="txt-1">Success</p>
+                        <p class="txt-2">Your changes have been saved</p>
+                    </div>
+                </div><img src="img/close-icon.svg" alt="close icon" class="close">
+                <div class="notif-progress"></div>
+            </li>
+        </ul> -->
         <header>
             <div class="header-cntnr">
                 <a href="#" class="header-content">
