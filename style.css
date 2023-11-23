@@ -341,8 +341,11 @@ body {
 /********* TO READ *********/
 .to-read-txt {
     position: absolute;
-    top: 610px;
     left: 32px;
+}
+
+#toRead .to-read-txt {
+    top: 610px;
     width: 77px;
 }
 
@@ -363,11 +366,14 @@ body {
 
 .to-read-more {
     position: absolute;
-    top: 610px;
     left: 298px;
     width: 30px;
     text-align: center;
     color: var(--dark-green);
+}
+
+#toRead .to-read-more {
+    top: 610px;
 }
 
 .to-read-cntnr {
@@ -427,6 +433,16 @@ body {
     border: 2px solid #fff;
     border-radius: 30px;
     object-fit: cover;
+}
+
+/********* LISTS *********/
+#lists .to-read-txt {
+    top: 752px;
+    width: 83px;
+}
+
+#lists .to-read-more {
+    top: 752px;
 }
 
 /********* NAV BAR *********/
