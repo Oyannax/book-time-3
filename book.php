@@ -13,26 +13,15 @@ generateToken();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer"> -->
     <link rel="stylesheet" href="style.css">
     <title>Book Time</title>
 </head>
 
-<body>
+<body id="data" data-token="<?= $_SESSION['token'] ?>">
     <div class="background">
-    <div class="form">
-        <?php getNotifHtml() ?>
-            <form action="action.php" method="POST">
-                <label class="form-label">Wanna add a book?
-                    <input class="text-input" type="text" name="book-title" placeholder="Your book title">
-                    <input class="text-input" type="textarea" name="description" placeholder="Any details?">
-                    <input type="hidden" name="action" value="add">
-                    <input id="token-field" type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
-                </label>
-                <input class="submit-input" type="submit" value="👍">
-            </form>
-        </div>
-        <!-- <ul class="notif-cntnr">
-            <li class="notif">
+        <ul id="notifList" class="notif-cntnr">
+            <!-- <li class="notif">
                 <div class="notif-content"><img src="img/check-icon.svg" alt="check icon" class="check">
                     <div class="msg-txt">
                         <p class="txt-1">Success</p>
@@ -40,8 +29,8 @@ generateToken();
                     </div>
                 </div><img src="img/close-icon.svg" alt="close icon" class="close">
                 <div class="notif-progress"></div>
-            </li>
-        </ul> -->
+            </li> -->
+        </ul>
         <header>
             <div class="header-cntnr">
                 <a href="#" class="header-content">
